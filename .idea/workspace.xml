@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8f97a38-f8a4-4f61-9e67-94d3b3332ef2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Patient.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MPIS.iws" />
@@ -308,6 +307,11 @@
       <created>1404167589079</created>
       <updated>1404167589079</updated>
     </task>
+    <task id="LOCAL-00001" summary="Create class Patient">
+      <created>1404227368840</created>
+      <updated>1404227368840</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -354,7 +358,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Create class Patient" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create class Patient" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
