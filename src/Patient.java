@@ -7,14 +7,14 @@ public class Patient {
     public enum Sex {None, Male, Female};
     private Integer Id;
     private String Name;// Surname and initials.
-    private Integer Age;
+    private Integer YearOfBirthday;
     private Sex SexOfPatient;// 0-None, 1-Male, 2-Female.
     private ArrayList<Research> ResearchsOfPatient;
 
-    Patient(Integer _Id, String _Name, Integer _Age, Sex _Sex)
+    Patient(Integer _Id, String _Name, Integer _YearOfBirthday, Sex _Sex)
     {
         Name = _Name;
-        Age = _Age;
+        YearOfBirthday = _YearOfBirthday;
         SexOfPatient = _Sex;
         Id = _Id;
     }
@@ -33,8 +33,8 @@ public class Patient {
         return Name;
     }
 
-    public Integer getAge() {
-        return Age;
+    public Integer getYearOfBirthday() {
+        return YearOfBirthday;
     }
 
     public Sex getSex() {
@@ -45,8 +45,8 @@ public class Patient {
         Name = name;
     }
 
-    public void setAge(Integer age) {
-        Age = age;
+    public void setYearOfBirthday(Integer yearOfBirthday) {
+        YearOfBirthday = yearOfBirthday;
     }
 
     public void setSex(String sex)
@@ -66,7 +66,7 @@ public class Patient {
     public boolean equals(Object obj) {
         if (obj instanceof Patient)
             if ((Name.equals(((Patient) obj).getName())) && (SexOfPatient.equals(((Patient) obj).getSex()))
-                    && (Age.equals(((Patient) obj).getAge())) && (Id.equals(((Patient) obj).getId()))) {
+                    && (YearOfBirthday.equals(((Patient) obj).getYearOfBirthday())) && (Id.equals(((Patient) obj).getId()))) {
                 return true;
             }
         return false;
@@ -74,18 +74,18 @@ public class Patient {
 
     @Override
     public String toString() {
-        String _Sex;
+        return "Ім'я:"+Name+"; Стать:"+sexToString()+"; Рік народження:"+ YearOfBirthday;
+    }
+    public String sexToString(){
         switch (SexOfPatient)
         {
             case Male:
-                _Sex = "Чоловіча";
-                break;
+                return "Чоловіча";
             case Female:
-                _Sex = "Жіноча";
-                break;
+                return "Жіноча";
             default:
-                _Sex = "Не визначено";
+                return "Не визначено";
         }
-        return "Ім'я:"+Name+"; Стать:"+_Sex+"; Вік:"+Age;
     }
+
 }

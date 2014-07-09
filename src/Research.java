@@ -5,10 +5,16 @@ import java.util.Date;
  * Class that defined model Data about researching;
  */
 public class Research {
+    enum Doctors {Shevchuk, Pogoretskiy};
     private Integer Id;
     private Date DateOfResearch;
     private Integer IdOfPatient;
     private Patient LinkToPatient;
+    private String FromWho;// Who is send the patient;
+    private String FirstDiagnosis;
+    private String Result;
+    private String LocalChanges;
+    private  Doctors Doctor;
 
     public Research(Integer id, Date dateOfResearch, Patient linkToPatient) {
         Id = id;
