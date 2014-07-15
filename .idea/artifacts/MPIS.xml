@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="MPIS">
+    <output-path>$PROJECT_DIR$/out/artifacts/MPIS</output-path>
+    <root id="root">
+      <element id="archive" name="MPIS.jar">
+        <element id="module-output" name="MPIS" />
+      </element>
+    </root>
+  </artifact>
+</component>
