@@ -1,24 +1,25 @@
-import java.util.LinkedList;
+import com.healthmarketscience.jackcess.Database;
+import com.healthmarketscience.jackcess.DatabaseBuilder;
+import com.healthmarketscience.jackcess.Table;
 
-/**
- * Created by Illya on 01.07.2014.
- * Class that consist main logic methods;
- */
+import java.io.File;
+
 public class DataBaseCore {
-    private LinkedList<Patient> PatientsTable;
-    private LinkedList<Research> ResearchsTable;
+    private Database MainDataBase;
+    private Table PatientTable;
+    private Table ResearchTable;
 
-    DataBaseCore() {
-        PatientsTable = new LinkedList<Patient>();
-        ResearchsTable = new LinkedList<Research>();
-    }
-
-    public Patient getPatient(int index) {
-        return PatientsTable.get(index);
-    }
-
-    public Research getResearch(int index) {
-        return ResearchsTable.get(index);
+    DataBaseCore(String path) {
+        try {
+            MainDataBase = DatabaseBuilder.open(new File(path));
+            PatientTable = MainDataBase.getTable("Patients");
+            ResearchTable = MainDataBase.getTable("Researchs");
+            System.out.println("All fine");
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
 
 }

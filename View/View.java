@@ -38,6 +38,7 @@ public class View extends JFrame {
         setSize(1000,900);
         setResizable(false);
         setVisible(true);
+        setBackground(Color.WHITE);
         setLayout(null);
 
         // PANELS;
