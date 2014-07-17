@@ -3,7 +3,6 @@ import com.healthmarketscience.jackcess.DatabaseBuilder;
 import com.healthmarketscience.jackcess.Row;
 import com.healthmarketscience.jackcess.Table;
 
-import javax.swing.table.AbstractTableModel;
 import java.io.File;
 import java.util.LinkedList;
 
@@ -42,7 +41,13 @@ public class DataBaseCore{
             return Patient.Sex.None;
     }
 
-    public LinkedList<Patient> getPatientTable() {
+    public LinkedList<Patient> getPatients() {
         return Patients;
     }
+
+    public void add(Patient newPatient)
+    {
+        Patients.add(new Patient(Patients.size(), newPatient.getName(), newPatient.getYearOfBirthday(),newPatient.getSex()));
+    }
+
 }

@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class View extends JFrame {
     private DataBaseCore MainBase;
@@ -86,7 +88,7 @@ public class View extends JFrame {
         TopRightPanel.updateUI();
 
         // Patient table;
-        TableModel MainModel = new TableModel(MainBase.getPatientTable());
+        final TableModel MainModel = new TableModel(MainBase.getPatients());
         DataTable = new JTable(MainModel);
         DataTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         DataTable.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -105,8 +107,22 @@ public class View extends JFrame {
         BottomLeftPanel.updateUI();
 
         // Add/Delete buttons;
+        PatientAddButton = new JButton();
+        PatientDeleteButton = new JButton();
+        ResearchAddButton = new JButton();
+        ResearchDeleteButton = new JButton();
         addButtonsBar(888,843, PatientAddButton, PatientDeleteButton);
         addButtonsBar(360, 843, ResearchAddButton, ResearchDeleteButton);
+
+        // BUTTONS ACTIONS;
+        PatientAddButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MainBase.add(new Patient(0,"",1920, Patient.Sex.None));
+                MainModel.setModel(MainBase.getPatients());
+                DataTable.updateUI();
+            }
+        });
     }
 
     private void addButtonsBar(int x, int y, JButton addButton, JButton deleteButton ) {
@@ -114,10 +130,10 @@ public class View extends JFrame {
         ButtonPanel.setBounds(x, y, 90, 30);
         add(ButtonPanel);
 
-        addButton = new JButton("+");
+        addButton.setText("+");
         addButton.setBounds(0, 0, 45, 30);
 
-        deleteButton = new JButton("-");
+        deleteButton.setText("-");
         deleteButton.setBounds(45,0,45,30);
 
         ButtonPanel.add(addButton);
