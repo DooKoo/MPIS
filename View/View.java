@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class View extends JFrame {
+    private DataBaseCore MainBase;
     private JPanel BottomRightPanel;
     private JPanel BottomLeftPanel;
     private JPanel ResearchsPanel;
@@ -28,6 +29,7 @@ public class View extends JFrame {
     private JButton PatientDeleteButton;
 
     View(){
+        MainBase= new DataBaseCore("B:\\Maindb.mdb");
         Init();
     }
 
@@ -84,8 +86,7 @@ public class View extends JFrame {
         TopRightPanel.updateUI();
 
         // Patient table;
-        TableModel MainModel = new TableModel();
-        MainModel.testInit();
+        TableModel MainModel = new TableModel(MainBase.getPatientTable());
         DataTable = new JTable(MainModel);
         DataTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         DataTable.getColumnModel().getColumn(0).setPreferredWidth(50);
@@ -145,7 +146,7 @@ public class View extends JFrame {
         nameField = new JTextField(10);
         nameField.setBounds(0,20,150,20);
 
-        sexComboBox = new JComboBox<String>( new String[]{"Чоловіча", "Жіноча"});
+        sexComboBox = new JComboBox<String>( new String[]{"Чоловік", "Жінка"});
         sexComboBox.setBackground(Color.WHITE);
         sexComboBox.setBounds(210,20,100,20);
 
