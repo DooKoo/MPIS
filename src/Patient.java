@@ -1,15 +1,10 @@
-import java.util.ArrayList;
-
-/**
- * Created by Illya on 01.07.2014.
- */
 public class Patient {
-    public enum Sex {None, Male, Female};
+    public enum Sex {None, Male, Female}
     private Integer Id;
     private String Name;// Surname and initials.
     private Integer YearOfBirthday;
     private Sex SexOfPatient;// 0-None, 1-Male, 2-Female.
-    private ArrayList<Research> ResearchsOfPatient;
+  //  private ArrayList<Research> ResearchsOfPatient;
 
     Patient(Integer _Id, String _Name, Integer _YearOfBirthday, Sex _Sex)
     {
@@ -19,11 +14,11 @@ public class Patient {
         Id = _Id;
     }
 
-    public void addResearch(Research research)
+   /* public void addResearch(Research research)
     {
         ResearchsOfPatient.add(research);
         research.setLinkToPatient(this);
-    }
+    }*/
 
     public Integer getId() {
         return Id;
@@ -41,9 +36,9 @@ public class Patient {
         return SexOfPatient;
     }
 
-    public void setName(String name) {
+    /*public void setName(String name) {
         Name = name;
-    }
+    }*/
 
     public void setYearOfBirthday(Integer yearOfBirthday) {
         YearOfBirthday = yearOfBirthday;
@@ -80,12 +75,21 @@ public class Patient {
         switch (SexOfPatient)
         {
             case Male:
-                return "Чоловіча";
+                return "Чоловік";
             case Female:
-                return "Жіноча";
+                return "Жінка";
             default:
                 return "Не визначено";
         }
+    }
+    public static Sex stringToSex(String sex)
+    {
+        if (sex.equals("Чоловік"))
+            return Sex.Male;
+        else if (sex.equals("Жінка"))
+            return Sex.Female;
+        else
+            return Sex.None;
     }
 
 }

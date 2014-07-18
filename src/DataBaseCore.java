@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class DataBaseCore{
     private Database MainDataBase;
     private Table PatientTable;
-    private Table ResearchTable;
+    //private Table ResearchTable;
 
     private LinkedList<Patient> Patients;
 
@@ -17,7 +17,7 @@ public class DataBaseCore{
         try {
             MainDataBase = DatabaseBuilder.open(new File(path));
             PatientTable = MainDataBase.getTable("Patients");
-            ResearchTable = MainDataBase.getTable("Researchs");
+           // ResearchTable = MainDataBase.getTable("Researchs");
             Patients = new LinkedList<Patient>();
             for(Row item : PatientTable)
             {
@@ -50,4 +50,8 @@ public class DataBaseCore{
         Patients.add(new Patient(Patients.size(), newPatient.getName(), newPatient.getYearOfBirthday(),newPatient.getSex()));
     }
 
+    public int getCount()
+    {
+        return Patients.size();
+    }
 }
